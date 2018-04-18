@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {Keys} from "../../assets/data/keys";
 import 'rxjs/Rx';
 
 @Injectable()
@@ -7,28 +8,25 @@ export class MarvelService {
 
     http:any;
     baseUrl:String;
-    Apikey:String;
+    apikey:String;
 
-    constructor(http:HttpClient){
+    constructor(http:HttpClient, private Keys: Keys,){
         this.http=http;
-        this.baseUrl='https://gateway.marvel.com:443/v1/public/comics?hasDigitalIssue=true&orderBy=-issueNumber&limit=10&offset=0&apikey=2cba093a456699c03567b3c1f775547f';
+        this.apikey = this.Keys.getApiKey();
+        this.baseUrl='https://gateway.marvel.com:443/v1/public/comics?hasDigitalIssue=true&orderBy=-issueNumber&limit=10&offset=0&apikey='+this.apikey;
+
     }
     getComics(){
-        this.getApiKey()
-            .then((response) => {
-                response.subscribe(res => {
-                    this.Apikey = res.marvelKey;
-                })
-            })
-            .catch(error => console.log(error))
+        console.log(this.apikey);
         return this.http.get(this.baseUrl);
     }
-
-    getPage(offset){
-        return this.http.get('https://gateway.marvel.com:443/v1/public/comics?hasDigitalIssue=true&orderBy=-issueNumber&limit=10&offset='+offset+'&apikey='+this.Apikey)
+    getHeroes(){
+        return this.http.get('https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=10&apikey='+this.apikey);
     }
-    async getApiKey() {
-        return await this.http.get('assets/data/keys.json')
-
+    getPageHeros(offset){
+        return this.http.get('https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=10&offset='+offset+'&apikey='+this.apikey);
+    }
+    getPageComics(offset){
+        return this.http.get('https://gateway.marvel.com:443/v1/public/comics?hasDigitalIssue=true&orderBy=-issueNumber&limit=10&offset='+offset+'&apikey='+this.apikey)
     }
 }

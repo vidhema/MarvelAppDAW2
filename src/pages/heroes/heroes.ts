@@ -13,48 +13,48 @@ import {MarvelService} from "../../app/services/marvel.service";
 
 @IonicPage()
 @Component({
-    selector: 'page-comics',
-    templateUrl: 'comics.html'
+    selector: 'page-heroes',
+    templateUrl: 'heroes.html'
 })
-export class ComicsPage {
+export class HeroesPage {
     @ViewChild(Content) content: Content;
-    comics: any;
+    heroes: any;
     page: any;
-    totalComics:any;
+    totalHeroes:any;
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 private marvelService: MarvelService,
                 private loadingController: LoadingController) {
 
         this.page = 0;
-        this.totalComics=100;
+        this.totalHeroes=100;
 
     }
     ionViewDidLoad() {
-        this.getComics();
+        this.getHeroes();
 
     }
     scrollToTop() {
         this.content.scrollToTop();
     }
-    getComics(){
+    getHeroes(){
         let loader = this.loadingController.create({
-            content: 'Loading Comics ...',
+            content: 'Loading Heroes ...',
             spinner: 'circles'
         });
         loader.present().then(()=>{
-            this.marvelService.getComics().subscribe(
+            this.marvelService.getHeroes().subscribe(
                 (response) => {
-                    this.comics = response.data.results;
-                    this.totalComics=response.data.total;
+                    this.heroes = response.data.results;
+                    this.totalHeroes=response.data.total;
+                    console.log(this.heroes);
                     loader.dismiss();
                 }
             );
         })
-
     }
     getNextPage(){
-        if(this.page < parseInt(this.totalComics)){
+        if(this.page < parseInt(this.totalHeroes)){
             this.page=this.page+10;
             this.loadPage();
         }
@@ -72,9 +72,9 @@ export class ComicsPage {
             spinner: 'circles'
         });
         loader.present().then(()=>{
-            this.marvelService.getPageComics(this.page.toString()).subscribe(
+            this.marvelService.getPageHeros(this.page.toString()).subscribe(
                 (response) => {
-                    this.comics = response.data.results;
+                    this.heroes = response.data.results;
                     loader.dismiss();
                     this.scrollToTop();
                 }

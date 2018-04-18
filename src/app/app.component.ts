@@ -5,11 +5,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import {ComicsPage} from "../pages/comics/comics";
+import {HeroesPage} from "../pages/heroes/heroes";
 import {MarvelService} from "./services/marvel.service";
+import {Keys} from "../assets/data/keys";
 
 @Component({
     templateUrl: 'app.html',
-    providers:[MarvelService]
+    providers:[MarvelService,Keys]
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
@@ -38,6 +40,9 @@ export class MyApp {
 
     goToComicsPage(){
         this.nav.push(ComicsPage);
+    }
+    goToHeroesPage(){
+        this.nav.push(HeroesPage);
     }
     openPage(page) {
         // Reset the content nav to have just this page
