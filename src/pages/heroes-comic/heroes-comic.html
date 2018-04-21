@@ -3,31 +3,26 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Hero Details</ion-title>
+        <ion-title>{{comicName}} Heroes</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content text-wrap>
+<ion-content padding text-center>
 
-    <ion-item text-center>
-        <ion-grid>
+    <ion-list>
+        <ion-item *ngFor="let hero of heroes">
             <ion-row>
-                <ion-col>
+                <ion-col text-center>
                     <h1>{{hero.name}}</h1>
                     <ion-thumbnail>
                         <img style="max-width: 100%; width: auto; height: auto;" src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" alt="" >
                     </ion-thumbnail>
+                    <div>
+                        <button ion-button (click)="viewDetails(hero)">View Details</button>
+                        <button ion-button>Add to Favourites</button>
+                    </div>
                 </ion-col>
             </ion-row>
-            <ion-row>
-                <ion-col>
-                    <p margin text-justify>{{hero.description}}</p>
-                </ion-col>
-            </ion-row>
-            <div>
-                <button ion-button>Add to Favourites</button>
-                <button ion-button>Comics Details</button>
-            </div>
-        </ion-grid>
-    </ion-item>
+        </ion-item>
+    </ion-list>
 
 </ion-content>

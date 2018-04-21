@@ -1,16 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import {Content} from "ionic-angular";
 import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
-import {HomePage} from "../home/home";
 import {ComicDetails} from "../comic-details/comic-details";
 import {MarvelService} from "../../app/services/marvel.service";
-
-/**
- * Generated class for the TournamentsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

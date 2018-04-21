@@ -25,4 +25,10 @@ export class MarvelService {
     getPageComics(offset){
         return this.http.get('https://gateway.marvel.com:443/v1/public/comics?hasDigitalIssue=true&orderBy=-issueNumber&limit=10&offset='+offset+'&apikey='+this.apikey)
     }
+    getHerosByComicID(id){
+        return this.http.get('https://gateway.marvel.com:443/v1/public/comics/'+id+'/characters?apikey='+this.apikey);
+    }
+    getComicsByHeroID(id){
+        return this.http.get('https://gateway.marvel.com:443/v1/public/characters/'+id+'/comics?hasDigitalIssue=true&apikey='+this.apikey)
+    }
 }

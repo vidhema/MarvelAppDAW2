@@ -8,6 +8,7 @@ import {ComicsPage} from '../pages/comics/comics';
 import {HeroesPage} from '../pages/heroes/heroes';
 import {ComicDetails} from '../pages/comic-details/comic-details';
 import {HeroDetails} from "../pages/hero-details/hero-details";
+import {HeroesComicPage} from "../pages/heroes-comic/heroes-comic";
 import {HttpClientModule} from "@angular/common/http";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         ComicsPage,
         HeroesPage,
         ComicDetails,
-        HeroDetails
+        HeroDetails,
+        HeroesComicPage
     ],
     imports: [
         BrowserModule,
@@ -33,7 +35,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         ComicsPage,
         HeroesPage,
         ComicDetails,
-        HeroDetails
+        HeroDetails,
+        HeroesComicPage
     ],
     providers: [
         StatusBar,
