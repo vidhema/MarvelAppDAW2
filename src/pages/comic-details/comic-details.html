@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Comic Details</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content text-wrap>
+
+    <ion-item text-center>
+       <ion-grid>
+           <ion-row>
+               <ion-col>
+                   <h1>{{comic.title}}</h1>
+                   <ion-thumbnail>
+                       <img style="max-width: 100%; width: auto; height: auto;" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="" >
+                   </ion-thumbnail>
+               </ion-col>
+           </ion-row>
+           <ion-row>
+               <ion-col>
+                   <p margin text-justify>{{comic.description}}</p>
+                   <h2 margin-left text-left>Price: {{comic.prices[0].price}}</h2>
+               </ion-col>
+           </ion-row>
+           <ion-row>
+               <ion-col>
+                   <h2>Creators: </h2>
+                   <div *ngFor="let author of comic.creators.items">
+                       <h3>name: {{author.name}}</h3>
+                       <h3>rol: {{author.role}}</h3>
+                   </div>
+               </ion-col>
+           </ion-row>
+           <div>
+               <button ion-button>Add to Favourites</button>
+               <button ion-button>Hero Details</button>
+           </div>
+       </ion-grid>
+    </ion-item>
+
+</ion-content>

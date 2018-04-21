@@ -7,18 +7,14 @@ import 'rxjs/Rx';
 export class MarvelService {
 
     http:any;
-    baseUrl:String;
     apikey:String;
 
     constructor(http:HttpClient, private Keys: Keys,){
         this.http=http;
         this.apikey = this.Keys.getApiKey();
-        this.baseUrl='https://gateway.marvel.com:443/v1/public/comics?hasDigitalIssue=true&orderBy=-issueNumber&limit=10&offset=0&apikey='+this.apikey;
-
     }
     getComics(){
-        console.log(this.apikey);
-        return this.http.get(this.baseUrl);
+        return this.http.get('https://gateway.marvel.com:443/v1/public/comics?hasDigitalIssue=true&orderBy=-issueNumber&limit=10&offset=0&apikey='+this.apikey);
     }
     getHeroes(){
         return this.http.get('https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=10&apikey='+this.apikey);

@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import {Content} from "ionic-angular";
 import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {HomePage} from "../home/home";
+import {ComicDetails} from "../comic-details/comic-details";
 import {MarvelService} from "../../app/services/marvel.service";
 
 /**
@@ -47,6 +48,7 @@ export class ComicsPage {
                 (response) => {
                     this.comics = response.data.results;
                     this.totalComics=response.data.total;
+                    console.log(this.comics);
                     loader.dismiss();
                 }
             );
@@ -80,6 +82,9 @@ export class ComicsPage {
                 }
             );
         })
+    }
+    viewDetails(item){
+        this.navCtrl.push(ComicDetails,item);
     }
     itemTapped(item){
         this.navCtrl.push(HomePage,item);

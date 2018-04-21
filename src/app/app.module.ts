@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {ComicsPage} from '../pages/comics/comics';
 import {HeroesPage} from '../pages/heroes/heroes';
+import {ComicDetails} from '../pages/comic-details/comic-details';
 import {HttpClientModule} from "@angular/common/http";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,7 +16,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         MyApp,
         HomePage,
         ComicsPage,
-        HeroesPage
+        HeroesPage,
+        ComicDetails
     ],
     imports: [
         BrowserModule,
@@ -27,7 +29,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         MyApp,
         HomePage,
         ComicsPage,
-        HeroesPage
+        HeroesPage,
+        ComicDetails
     ],
     providers: [
         StatusBar,
