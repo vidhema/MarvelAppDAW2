@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import {ComicsPage} from '../pages/comics/comics';
 import {HeroesPage} from '../pages/heroes/heroes';
 import {ComicDetails} from '../pages/comic-details/comic-details';
-import {HeroDetails} from "../pages/hero-details/hero-details";
+import {HeroeDetails} from "../pages/heroe-details/heroe-details";
 import {HeroesComicPage} from "../pages/heroes-comic/heroes-comic";
 import {ComicsHeroePage} from "../pages/comics-heroe/comics-heroe";
 import {HttpClientModule} from "@angular/common/http";
@@ -21,7 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         ComicsPage,
         HeroesPage,
         ComicDetails,
-        HeroDetails,
+        HeroeDetails,
         HeroesComicPage,
         ComicsHeroePage
     ],
@@ -37,7 +37,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         ComicsPage,
         HeroesPage,
         ComicDetails,
-        HeroDetails,
+        HeroeDetails,
         HeroesComicPage,
         ComicsHeroePage
     ],

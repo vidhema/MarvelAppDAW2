@@ -3,7 +3,7 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Hero Details</ion-title>
+        <ion-title>Heroe Details</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content text-wrap>
@@ -12,20 +12,20 @@
         <ion-grid>
             <ion-row>
                 <ion-col>
-                    <h1>{{hero.name}}</h1>
+                    <h1>{{heroe.name}}</h1>
                     <ion-thumbnail>
-                        <img style="max-width: 100%; width: auto; height: auto;" src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" alt="" >
+                        <img style="max-width: 100%; width: auto; height: auto;" src="{{heroe.thumbnail.path}}.{{heroe.thumbnail.extension}}" alt="" >
                     </ion-thumbnail>
                 </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col>
-                    <p margin text-justify>{{hero.description}}</p>
+                    <p margin text-justify>{{heroe.description}}</p>
                 </ion-col>
             </ion-row>
             <div>
                 <button ion-button>Add to Favourites</button>
-                <button ion-button (click)="sendHeroeID(hero.id, hero.name)">Comics</button>
+                <button ion-button (click)="sendHeroeID(heroe.id, heroe.name)">Comics</button>
             </div>
         </ion-grid>
     </ion-item>

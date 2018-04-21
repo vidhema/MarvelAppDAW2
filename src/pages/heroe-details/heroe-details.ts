@@ -5,17 +5,17 @@ import {ComicsHeroePage} from "../comics-heroe/comics-heroe";
 
 @IonicPage()
 @Component({
-    selector: 'page-hero-details',
-    templateUrl: 'hero-details.html'
+    selector: 'page-heroe-details',
+    templateUrl: 'heroe-details.html'
 })
-export class HeroDetails {
+export class HeroeDetails {
     @ViewChild(Content) content: Content;
-    hero: any;
+    heroe: any;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams) {
-        this.hero = this.navParams.data;
-        console.log(this.hero);
+        this.heroe = this.navParams.data;
+        console.log(this.heroe);
     }
     sendHeroeID(id,name){
         console.log(id);
@@ -25,5 +25,4 @@ export class HeroDetails {
         };
         this.navCtrl.push(ComicsHeroePage,items);
     }
-
 }

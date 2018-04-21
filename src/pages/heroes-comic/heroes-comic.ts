@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import {Content} from "ionic-angular";
 import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {MarvelService} from "../../app/services/marvel.service";
-import {HeroDetails} from "../hero-details/hero-details";
+import {HeroeDetails} from "../heroe-details/heroe-details";
 
 @IonicPage()
 @Component({
@@ -44,7 +44,7 @@ export class HeroesComicPage {
         })
     }
     viewDetails(item){
-        this.navCtrl.push(HeroDetails,item);
+        this.navCtrl.push(HeroeDetails,item);
     }
 
 }
