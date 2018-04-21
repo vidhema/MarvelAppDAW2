@@ -86,7 +86,4 @@ export class ComicsPage {
     viewDetails(item){
         this.navCtrl.push(ComicDetails,item);
     }
-    itemTapped(item){
-        this.navCtrl.push(HomePage,item);
-    }
 }

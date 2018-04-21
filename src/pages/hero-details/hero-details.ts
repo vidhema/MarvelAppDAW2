@@ -4,17 +4,17 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 
 @IonicPage()
 @Component({
-    selector: 'page-comic-details',
-    templateUrl: 'comic-details.html'
+    selector: 'page-hero-details',
+    templateUrl: 'hero-details.html'
 })
-export class ComicDetails {
+export class HeroDetails {
     @ViewChild(Content) content: Content;
-    comic: any;
+    hero: any;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams) {
-        this.comic = this.navParams.data;
-        console.log(this.comic);
-
+        this.hero = this.navParams.data;
+        console.log(this.hero);
     }
+
 }

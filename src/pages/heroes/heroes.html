@@ -17,7 +17,7 @@
                         <img style="max-width: 100%; width: auto; height: auto;" src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" alt="" >
                     </ion-thumbnail>
                     <div>
-                        <button ion-button>View Details</button>
+                        <button ion-button (click)="viewDetails(hero)">View Details</button>
                         <button ion-button>Add to Favourites</button>
                     </div>
                 </ion-col>
