@@ -25,7 +25,7 @@
             </ion-row>
             <div>
                 <button ion-button>Add to Favourites</button>
-                <button ion-button>Comics Details</button>
+                <button ion-button (click)="sendHeroeID(hero.id, hero.name)">Comics</button>
             </div>
         </ion-grid>
     </ion-item>

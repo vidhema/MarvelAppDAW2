@@ -29,6 +29,9 @@ export class MarvelService {
         return this.http.get('https://gateway.marvel.com:443/v1/public/comics/'+id+'/characters?apikey='+this.apikey);
     }
     getComicsByHeroID(id){
-        return this.http.get('https://gateway.marvel.com:443/v1/public/characters/'+id+'/comics?hasDigitalIssue=true&apikey='+this.apikey)
+        return this.http.get('https://gateway.marvel.com:443/v1/public/characters/'+id+'/comics?hasDigitalIssue=true&limit=10&apikey='+this.apikey)
+    }
+    getPageComicsByHero(id,offset){
+        return this.http.get('https://gateway.marvel.com:443/v1/public/characters/'+id+'/comics?hasDigitalIssue=true&limit=10&offset='+offset+'&apikey='+this.apikey)
     }
 }
