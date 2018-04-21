@@ -34,7 +34,7 @@ export class HeroesComicPage {
             spinner: 'circles'
         });
         loader.present().then(()=>{
-            this.marvelService.getHerosByComicID(this.comicID).subscribe(
+            this.marvelService.getHeroesByComicID(this.comicID).subscribe(
                 (response) => {
                     this.heroes = response.data.results;
                     console.log(this.heroes);
