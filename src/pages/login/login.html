@@ -23,6 +23,8 @@
         <ion-label floating>Password</ion-label>
         <ion-input type="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
-    <button ion-button (click)="loginUser(user)" >Login</button>
-    <button ion-button (click)="registerUser()" >Register</button>
+    <div margin>
+        <button ion-button (click)="loginUser(user)" >Sign In</button>
+        <button ion-button (click)="registerUser()" >Sign Up</button>
+    </div>
 </ion-content>

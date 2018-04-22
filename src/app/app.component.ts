@@ -9,6 +9,7 @@ import {HeroesPage} from "../pages/heroes/heroes";
 import {MarvelService} from "./services/marvel.service";
 import {Keys} from "../assets/data/keys";
 import {LoginPage} from "../pages/login/login";
+import {AngularFireAuth} from "angularfire2/auth";
 
 @Component({
     templateUrl: 'app.html',
@@ -20,7 +21,8 @@ export class MyApp {
 
     constructor(public platform: Platform,
                 public statusBar: StatusBar,
-                public splashScreen: SplashScreen) {
+                public splashScreen: SplashScreen,
+                private authentication: AngularFireAuth ) {
         this.initializeApp();
 
     }
@@ -43,6 +45,10 @@ export class MyApp {
     }
     goToHeroesPage(){
         this.nav.push(HeroesPage);
+    }
+    logOut(){
+        this.authentication.auth.signOut();
+        this.nav.setRoot(LoginPage);
     }
     openPage(page) {
         // Reset the content nav to have just this page
