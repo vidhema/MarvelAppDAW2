@@ -43,7 +43,6 @@ export class ComicsHeroePage {
                 (response) => {
                     this.comics = response.data.results;
                     this.totalComics=response.data.total;
-                    console.log(this.comics);
                     loader.dismiss();
                 }
             );

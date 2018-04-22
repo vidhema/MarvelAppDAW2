@@ -17,10 +17,8 @@ export class HeroeDetails {
                 public navParams: NavParams,
                 private favoriteService: FavoriteService) {
         this.heroe = this.navParams.data;
-        console.log(this.heroe);
     }
     sendHeroeID(id,name){
-        console.log(id);
         let items = {
             id: id,
             name: name

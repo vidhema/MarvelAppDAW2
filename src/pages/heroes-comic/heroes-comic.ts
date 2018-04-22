@@ -23,7 +23,6 @@ export class HeroesComicPage {
                 private favoriteService: FavoriteService) {
         this.comicName = this.navParams.data.name;
         this.comicID = this.navParams.data.id;
-        console.log(this.comicName, this.comicID);
 
     }
     ionViewDidLoad() {
@@ -39,7 +38,6 @@ export class HeroesComicPage {
             this.marvelService.getHeroesByComicID(this.comicID).subscribe(
                 (response) => {
                     this.heroes = response.data.results;
-                    console.log(this.heroes);
                     loader.dismiss();
                 }
             );

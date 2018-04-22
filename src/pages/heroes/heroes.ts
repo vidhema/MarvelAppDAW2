@@ -42,7 +42,6 @@ export class HeroesPage {
                 (response) => {
                     this.heroes = response.data.results;
                     this.totalHeroes=response.data.total;
-                    console.log(this.heroes);
                     loader.dismiss();
                 }
             );

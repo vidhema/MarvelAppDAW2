@@ -17,12 +17,10 @@ export class ComicDetails {
                 public navParams: NavParams,
                 private favoriteService: FavoriteService) {
         this.comic = this.navParams.data;
-        console.log(this.comic);
 
     }
 
     sendHeroToHeroDetails(id,name){
-        console.log(id);
         let items = {
             id: id,
             name: name
