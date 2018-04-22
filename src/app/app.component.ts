@@ -8,6 +8,7 @@ import {ComicsPage} from "../pages/comics/comics";
 import {HeroesPage} from "../pages/heroes/heroes";
 import {MarvelService} from "./services/marvel.service";
 import {Keys} from "../assets/data/keys";
+import {LoginPage} from "../pages/login/login";
 
 @Component({
     templateUrl: 'app.html',
@@ -15,8 +16,7 @@ import {Keys} from "../assets/data/keys";
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
-
-    rootPage: any = HomePage;
+    rootPage: any = LoginPage;
 
     constructor(public platform: Platform,
                 public statusBar: StatusBar,
