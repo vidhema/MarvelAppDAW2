@@ -3,6 +3,7 @@ import {Content} from "ionic-angular";
 import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {MarvelService} from "../../app/services/marvel.service";
 import {HeroeDetails} from "../heroe-details/heroe-details";
+import {FavoriteService} from "../../app/services/storage.service";
 
 @IonicPage()
 @Component({
@@ -18,7 +19,8 @@ export class HeroesComicPage {
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 private marvelService: MarvelService,
-                private loadingController: LoadingController) {
+                private loadingController: LoadingController,
+                private favoriteService: FavoriteService) {
         this.comicName = this.navParams.data.name;
         this.comicID = this.navParams.data.id;
         console.log(this.comicName, this.comicID);
@@ -45,6 +47,9 @@ export class HeroesComicPage {
     }
     viewDetails(item){
         this.navCtrl.push(HeroeDetails,item);
+    }
+    addToFavorites(heroe){
+        this.favoriteService.addHeroeToFavorites(heroe);
     }
 
 }

@@ -21,17 +21,24 @@ export class LoginPage {
     }
 
     loginUser(user: User){
-        this.authentication.auth.signInWithEmailAndPassword(user.email.toString(), user.password.toString())
-            .then(
-                () => this.navCtrl.setRoot(HomePage),
-                error => {
-                    this.loginError = error.message
-                    this.toast.create({
-                        message:`Could not find User`,
-                        duration: 3000
-                    }).present()
-                }
-            )
+        if(user.email === undefined || user.password === undefined){
+            this.toast.create({
+                message:`Empty field`,
+                duration: 3000
+            }).present()
+        }else{
+            this.authentication.auth.signInWithEmailAndPassword(user.email.toString(), user.password.toString())
+                .then(
+                    () => this.navCtrl.setRoot(HomePage),
+                    error => {
+                        this.loginError = error.message;
+                        this.toast.create({
+                            message:`Could not find User`,
+                            duration: 3000
+                        }).present()
+                    }
+                )
+        }
     }
     registerUser(){
         this.navCtrl.push(RegisterPage)

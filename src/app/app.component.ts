@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import {AlertController, Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -10,10 +10,11 @@ import {MarvelService} from "./services/marvel.service";
 import {Keys} from "../assets/data/keys";
 import {LoginPage} from "../pages/login/login";
 import {AngularFireAuth} from "angularfire2/auth";
+import {FavoriteService} from "./services/storage.service";
 
 @Component({
     templateUrl: 'app.html',
-    providers:[MarvelService,Keys]
+    providers:[MarvelService,Keys, FavoriteService]
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
@@ -22,7 +23,8 @@ export class MyApp {
     constructor(public platform: Platform,
                 public statusBar: StatusBar,
                 public splashScreen: SplashScreen,
-                private authentication: AngularFireAuth ) {
+                private authentication: AngularFireAuth,
+                private alertCtrl: AlertController) {
         this.initializeApp();
 
     }
@@ -47,8 +49,29 @@ export class MyApp {
         this.nav.push(HeroesPage);
     }
     logOut(){
-        this.authentication.auth.signOut();
-        this.nav.setRoot(LoginPage);
+        let alert = this.alertCtrl.create({
+            title: 'Confirm Sign Out',
+            message: 'Do you want Sign Out?' +
+            '\n everything saved will be lost',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Sign Out',
+                    handler: () => {
+                        this.authentication.auth.signOut();
+                        localStorage.clear();
+                        this.nav.setRoot(LoginPage);
+                    }
+                }
+            ]
+        });
+        alert.present();
     }
     openPage(page) {
         // Reset the content nav to have just this page
