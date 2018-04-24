@@ -7,14 +7,13 @@ import { HomePage } from '../pages/home/home';
 import {ComicsPage} from "../pages/comics/comics";
 import {HeroesPage} from "../pages/heroes/heroes";
 import {MarvelService} from "./services/marvel.service";
-import {Keys} from "../assets/data/keys";
 import {LoginPage} from "../pages/login/login";
 import {AngularFireAuth} from "angularfire2/auth";
 import {FavoriteService} from "./services/storage.service";
 
 @Component({
     templateUrl: 'app.html',
-    providers:[MarvelService,Keys, FavoriteService]
+    providers:[MarvelService, FavoriteService]
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
