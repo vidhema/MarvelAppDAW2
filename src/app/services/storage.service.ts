@@ -9,7 +9,6 @@ export class FavoriteService {
     }
     addComicToFavorites(comic){
         if(!this.comicIsInFavorites(comic)){
-            comic.favorite=true;
             if(localStorage.getItem('comics') === null ){
                 let array = [];
                 array.push(comic);
@@ -22,7 +21,7 @@ export class FavoriteService {
         }
     }
     comicIsInFavorites(comic){
-        if (comic.favorite) {
+        if (this.searchComic(comic)) {
             let alert = this.alertCtrl.create({
                 title: 'Attention',
                 subTitle: '\n' +
@@ -33,6 +32,14 @@ export class FavoriteService {
             return true;
         }
         return false;
+    }
+    searchComic(comic){
+        if(localStorage.getItem('comics') !== null){
+            let array = JSON.parse(localStorage.getItem('comics'));
+            return array.find(response => response.id === comic.id) !== undefined;
+        }else{
+            return false;
+        }
     }
     addHeroeToFavorites(heroe){
         if(!this.heroeIsInFavorites(heroe)){
@@ -49,7 +56,7 @@ export class FavoriteService {
         }
     }
     heroeIsInFavorites(heroe){
-        if (heroe.favorite) {
+        if (this.searchHeroe(heroe)) {
             let alert = this.alertCtrl.create({
                 title: 'Attention',
                 subTitle: '\n' +
@@ -60,6 +67,14 @@ export class FavoriteService {
             return true;
         }
         return false;
+    }
+    searchHeroe(heroe){
+        if(localStorage.getItem('heroes') !== null){
+            let array = JSON.parse(localStorage.getItem('heroes'));
+            return array.find(response => response.id === heroe.id) !== undefined;
+        }else{
+            return false;
+        }
     }
 
 }

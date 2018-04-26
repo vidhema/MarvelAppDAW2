@@ -49,13 +49,13 @@ export class HomePage {
         this.navCtrl.push(HeroeDetails,item);
     }
     removeComicToFavorites(comic){
-        comic.favorite=false;
+
         let comics = JSON.parse(localStorage.getItem('comics'));
         comics = comics.filter( res => res.id !== comic.id);
         localStorage.setItem('comics', JSON.stringify(comics));
     }
     removeHeroeToFavorites(heroe){
-        heroe.favorite=false;
+
         let heroes = JSON.parse(localStorage.getItem('heroes'));
         heroes = heroes.filter( res => res.id !== heroe.id);
         localStorage.setItem('heroes', JSON.stringify(heroes));
